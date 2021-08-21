@@ -1,0 +1,35 @@
+.note-sidebar {
+    &__image-wrapper {
+        @extend .container-aspect;
+        --aspect-ratio: (2 / 1);
+        
+        @include mb('md-1');
+        background-color: $color-background-base;
+        border-radius: 12px;
+    }
+    
+    &__title {
+        @extend #font-md-2;
+        @include mb('md-1');
+        display: block;
+    }
+
+    &__paragraph {
+        @include mb('md-1');
+    }
+
+    &__links-title {
+        @extend #font-md-1;
+        @include mb('sm-1');
+        display: block;
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__link {
+        &:not(:last-child) { @include mb('sm-1'); }
+    }
+}

@@ -1,0 +1,48 @@
+@import './core/variables';
+@import './core/mixins';
+@import './core/root';
+@import './core/interfaces';
+
+@import './reset';
+@import './main';
+
+@import './components/common/container';
+@import './components/common/navigation';
+@import './components/common/footer';
+@import './components/common/header';
+@import './components/common/link';
+@import './components/common/icon';
+@import './components/common/sidebar';
+@import './components/common/blur';
+
+@import './components/home/header';
+
+@import './components/portfolio/item';
+
+@import './components/notes/list';
+@import './components/notes/sidebar';
+
+
+
+@media screen and (max-width: map-get($breackpoints, "xxl")) {
+}
+
+@media screen and (max-width: map-get($breackpoints, "xl")) {
+}
+
+@media screen and (max-width: map-get($breackpoints, "lg")) {
+    @include container--lg;
+    @include sidebar--lg;
+}
+
+@media screen and (max-width: map-get($breackpoints, "md")) {
+    @include sidebar--md;
+}
+
+@media screen and (max-width: map-get($breackpoints, "sm")) {
+    @include root--sm;
+    @include interfaces--sm;
+    @include navigation--sm;
+    @include footer--sm;
+    @include sidebar--sm;
+}

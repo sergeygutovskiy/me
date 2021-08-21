@@ -1,0 +1,39 @@
+.navigation {
+    @extend .container-fluid;
+    @include pv('md-1');
+    background-color: $color-foreground-base;
+
+    &__content {
+        display: flex;
+
+        &_media_mobile { display: none; }
+    }
+
+    &__item {
+        @extend #font-md-1;
+    
+        &:not(:first-child):not(:last-child) { @include mr('md-2'); }
+
+        > a { display: block; }
+    }
+
+    &__title {
+        margin-right: auto;
+        font-weight: 500;
+    }
+
+    &__icon {
+        &:not(:first-child):not(:last-child) { @include mr('md-2'); }
+    }
+}
+
+@mixin navigation--sm {
+    .navigation {
+        &__content {
+            &_media {
+                &_pc { display: none; } 
+                &_mobile { display: flex; }
+            }
+        }
+    }
+}

@@ -1,0 +1,96 @@
+.portfolio-item {
+    @extend .container-grid;
+
+    @include ph('md-2');
+    @include pt('md-2');
+    @include pb('md-1');
+
+    background-color: $color-foreground-base;
+    border-radius: 12px;
+    
+    &:not(:last-child) {
+        @include mb('md-2');
+    }
+
+    &__left-column {
+        grid-column: span 6;
+
+        display: flex;
+        flex-direction: column;
+        
+        @include pr('md-2');
+    }
+
+    &__header {
+        @include mb('md-1');
+    }
+
+    &__link {
+        @include mt('sm-2');
+        display: inline-block;
+    }
+
+    &__footer {
+        margin-top: auto;
+        display: flex;
+        @include pt('md-1');
+    }
+
+    &__icon {
+        &:not(:last-child) { @include mr('base'); }
+    }
+
+    &__right-column {
+        position: relative;
+        grid-column: span 6;
+    }
+
+    &__image {
+        &-wrapper {
+            @extend .container-aspect;
+
+            border-style: double;
+            border-width: 12px;
+            border-color: map-get($map: $colors, $key: 'gray');
+            border-radius: 8px;
+            background-color: $color-foreground-base;
+
+            &_pc {
+                --aspect-ratio: (16 / 9);
+
+                transform: translateY(-10px);
+            }
+    
+            &_mobile {
+                // --aspect-ratio: (9 / 16);
+                --aspect-ratio: (375 / 812);
+
+                @include mr('md-1');
+                
+                position: absolute;
+                right: 0;
+                bottom: 0;
+
+                transform: translateY(10px);
+                width: 30%;
+            }
+        }
+ 
+        object-position: top;
+        
+        &-wrapper:hover + &-wrapper { visibility: hidden; }
+    }
+}
+
+@mixin container--lg {
+    .portfolio-item {    
+        &__left-column {
+            grid-column: span 12;
+            padding-right: 0;
+        }
+        
+        &__right-column {
+            display: none;
+        }
+    }
+}

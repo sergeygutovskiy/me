@@ -1,0 +1,20 @@
+.notes-list {
+    margin-top: calc(-1 * var(--space-base));
+    margin-right: calc(-1 * var(--space-base));
+
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+        @include mt('base');
+        @include mr('base');
+
+        padding: 1em 1.5em;
+
+        text-align: left;
+
+        background-color: $color-foreground-base;
+        border: solid 1px map-get($map: $colors, $key: 'gray');
+        border-radius: 12px;
+    }
+}

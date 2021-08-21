@@ -1,0 +1,63 @@
+// margins
+
+@mixin mt($index) { margin-top: var(--space-#{$index}); }
+@mixin mb($index) { margin-bottom: var(--space-#{$index}); }
+@mixin mv($index) { 
+    @include mt($index);
+    @include mb($index);
+}
+
+@mixin ml($index) { margin-left: var(--space-#{$index}); }
+@mixin mr($index) { margin-right: var(--space-#{$index}); }
+@mixin mh($index) { 
+    @include ml($index);
+    @include mr($index);
+}
+
+// paddings
+
+@mixin pt($index) { padding-top: var(--space-#{$index}); }
+@mixin pb($index) { padding-bottom: var(--space-#{$index}); }
+@mixin pv($index) { 
+    @include pt($index);
+    @include pb($index);
+}
+
+@mixin pl($index) { padding-left: var(--space-#{$index}); }
+@mixin pr($index) { padding-right: var(--space-#{$index}); }
+@mixin ph($index) { 
+    @include pl($index);
+    @include pr($index);
+}
+
+// margins static
+
+@mixin mt-static($index) { margin-top: #{map-get($spaces, $index)}; }
+@mixin mb-static($index) { margin-bottom: #{map-get($spaces, $index)}; }
+@mixin mv-static($index) { 
+    @include mt-static($index);
+    @include mb-static($index);
+}
+
+@mixin ml-static($index) { margin-left: #{map-get($spaces, $index)}; }
+@mixin mr-static($index) { margin-right: #{map-get($spaces, $index)}; }
+@mixin mh-static($index) { 
+    @include ml-static($index);
+    @include mr-static($index);
+}
+
+// paddings static
+
+@mixin pt-static($index) { padding-top: #{map-get($spaces, $index)}; }
+@mixin pb-static($index) { padding-bottom: #{map-get($spaces, $index)}; }
+@mixin pv-static($index) { 
+    @include pt-static($index);
+    @include pb-static($index);
+}
+
+@mixin pl-static($index) { padding-left: #{map-get($spaces, $index)}; }
+@mixin pr-static($index) { padding-right: #{map-get($spaces, $index)}; }
+@mixin ph-static($index) { 
+    @include pl-static($index);
+    @include pr-static($index);
+}

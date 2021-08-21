@@ -1,0 +1,9 @@
+.header {
+    @extend .container;
+    @include mt('md-3');
+    @include mb('md-3');
+
+    &__paragraph {
+        @extend #font-md-1;
+    }
+}

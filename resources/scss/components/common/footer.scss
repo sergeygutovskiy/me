@@ -1,0 +1,39 @@
+.footer {
+    margin-top: auto;
+    @include pt('md-3');
+
+    &__content {
+        @extend .container-fluid;
+        display: flex;
+        @include pv('md-1');
+        background-color: $color-foreground-base;
+    }
+
+    &__link {    
+        &:not(:first-child):not(:last-child) { @include mr('md-2'); }
+
+        > a {
+            display: block;
+        }
+    }
+
+    &__email {
+        @extend #font-md-1;
+        margin-right: auto;
+        font-weight: 500;
+    }
+}
+
+@mixin footer--sm {
+    .footer {
+        &__content {
+            flex-wrap: wrap;
+        }
+
+        &__email {
+            @include mb('base');
+            margin-right: 0;
+            flex: 100%;
+        }
+    }
+}

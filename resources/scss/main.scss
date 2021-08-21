@@ -1,0 +1,25 @@
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    @extend #font-base;
+
+    display: flex;
+    flex-direction: column;
+
+    color: $color-font-base;
+    background-color: $color-background-base;
+}
+
+h1 {
+    @extend #font-xl;
+
+    &:not(:last-child) {
+        @include mb('md-1');
+    }
+}
+
+h2 {
+    @extend #font-lg;
+}

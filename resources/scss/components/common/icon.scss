@@ -1,0 +1,46 @@
+.icon {
+    --size: 32px;
+    --path: url(''); 
+
+    display: block;
+
+    width: var(--size);
+    height: var(--size);
+
+    background-image: var(--path);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    &_size_big {
+        --size: 48px;   
+    }
+
+    &_close {
+        --path: url('/images/icons/close.svg');
+    }
+
+    &_heart {
+        --path: url('/images/icons/heart.svg');
+    }
+
+    &_github {
+        --path: url('/images/icons/social/github.svg');
+    }
+
+    &_vk {
+        --path: url('/images/icons/social/vk.svg');
+    }
+
+    &_inst {
+        --path: url('/images/icons/social/inst.svg');
+    }
+
+    &_note {
+        --path: url('/images/icons/navigation/notes.svg');
+    }
+
+    &_portfolio {
+        --path: url('/images/icons/navigation/portfolio.svg');
+    }
+}

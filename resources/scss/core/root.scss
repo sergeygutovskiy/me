@@ -1,0 +1,13 @@
+:root {
+    @each $space-name, $space-value in $spaces {
+        --space-#{$space-name}: #{$space-value};
+    }
+}
+
+@mixin root--sm {
+    :root {
+        @each $space-name, $space-value in $spaces--sm {
+            --space-#{$space-name}: #{$space-value};
+        }
+    }
+}
