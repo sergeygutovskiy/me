@@ -4,3 +4,4 @@ public/cache
 public/js
 public/css
 public/images/storage
+.env
