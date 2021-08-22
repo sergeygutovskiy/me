@@ -6,9 +6,7 @@
     <header class="header">
         <h1>Портфолио</h1>
         <p class="header__paragraph">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-            Voluptas natus laboriosam a rerum facere maiores nobis dolor, alias praesentium qui incidunt 
-            vitae eius ratione sit maxime nemo quas. Nulla, voluptatem!
+            {!! App\Core\Settings::get('page_portfolio_text') !!}
         </p>
     </header>
 @endsection

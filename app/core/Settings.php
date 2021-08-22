@@ -16,7 +16,9 @@ class Settings
         {
             static::$settings[ $result['param'] ] = [
                 'id' => $result['id'],
+                'param' => $result['param'],
                 'value' => $result['value'],
+                'name' => $result['name']
             ];
         }
     }
@@ -24,5 +26,10 @@ class Settings
     public static function get($index) : string
     {
         return static::$settings[$index]['value'];
+    }
+
+    public static function all() : array
+    {
+        return static::$settings;
     }
 }
