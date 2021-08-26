@@ -4,6 +4,7 @@
 
     &__content {
         @extend .container-fluid;
+
         display: flex;
         @include pv('md-1');
         background-color: $color-foreground-base;

@@ -4,7 +4,7 @@
     
 @section('header')
     <header class="home-header">
-        <img class="home-header__avatar" src="/images/avatar.jpg">
+        <img class="home-header__avatar" src="/images/avatar_compressed.jpg">
         <h1>
             Гутовский Сережа
         </h1>

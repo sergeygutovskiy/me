@@ -3,10 +3,12 @@
 @section('title', 'Заметки')
     
 @section('header')
+    <?php use App\Core\Settings; ?>
+
     <header class="header">
         <h1>Заметки</h1>
         <p class="header__paragraph">
-            {{ App\Core\Settings::get('page_notes_text') }}
+            {!! Settings::get('page_notes_text') !!}
         </p>
     </header>
 @endsection

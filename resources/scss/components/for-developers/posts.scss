@@ -1,0 +1,15 @@
+.for-developers-posts {
+    @extend .container-grid;
+
+    > * {
+        grid-column: span 6;
+    }
+}
+
+@mixin for-developers--lg {
+    .for-developers-posts {
+        > * {
+            grid-column: span 12;
+        }
+    }
+}

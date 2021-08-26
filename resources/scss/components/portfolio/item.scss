@@ -13,12 +13,11 @@
     }
 
     &__left-column {
-        grid-column: span 6;
+        @include pr('md-2');
 
         display: flex;
         flex-direction: column;
-        
-        @include pr('md-2');
+        grid-column: span 6;
     }
 
     &__header {
@@ -28,6 +27,10 @@
     &__link {
         @include mt('sm-2');
         display: inline-block;
+    }
+
+    &__published_at_text {
+        @include mt('md-1');
     }
 
     &__footer {
@@ -41,42 +44,42 @@
     }
 
     &__right-column {
-        position: relative;
         grid-column: span 6;
+        position: relative;
     }
 
     &__image {
+        object-position: top;
+
         &-wrapper {
             @extend .container-aspect;
+            
+            background-color: $color-foreground-base;
 
             border-style: double;
             border-width: 12px;
             border-color: map-get($map: $colors, $key: 'gray');
             border-radius: 8px;
-            background-color: $color-foreground-base;
 
             &_pc {
                 --aspect-ratio: (16 / 9);
-
                 transform: translateY(-10px);
             }
     
             &_mobile {
-                // --aspect-ratio: (9 / 16);
+                @include mr('md-1');
+
                 --aspect-ratio: (375 / 812);
 
-                @include mr('md-1');
-                
                 position: absolute;
-                right: 0;
                 bottom: 0;
+                right: 0;
+                
+                width: 30%;
 
                 transform: translateY(10px);
-                width: 30%;
             }
         }
- 
-        object-position: top;
         
         &-wrapper:hover + &-wrapper { visibility: hidden; }
     }

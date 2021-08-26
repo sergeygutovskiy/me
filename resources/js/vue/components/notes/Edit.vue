@@ -1,14 +1,14 @@
 <template>
-    <section class="row">
+    <section class="row" v-if="note">
         <div class="col-12 mb-4">
             <div class="card">
                 <div class="card-body">
-                    <h1>Заметки - {{ edited_note.name }}</h1>
+                    <h1>Заметки - {{ note.name }}</h1>
                 </div>
             </div>
         </div>
-        <div class="col-10">
-            <form class="card" v-if="note" @submit="form_submitted">
+        <div class="col-10 mb-4">
+            <form class="card" @submit="form_submitted">
                 <div class="card-body">
                     <div>
                         <label class="form-label">Название</label>
@@ -49,17 +49,27 @@
                 </div>
             </form>
         </div>
+
+        <div class="col-10">
+            <notes-index v-bind:note="id" />
+        </div>
     </section>
 </template>
 
 <script>
 import ApiResponse from '../../../components/core/ApiResponse';
 
+import NotesIndex from './links/Index.vue';
+
 export default {
     props: [
         'id',
     ],
     
+    components: {
+        NotesIndex
+    },
+
     data() {
         return {
             edited_note: {
@@ -99,7 +109,10 @@ export default {
 
             this.edited_note.name = this.note.name;
             this.edited_note.description = this.note.description;
-            this.edited_note.image_path = this.note.image_path;
+        
+            const image = this.note.image_path; 
+            if ( image !== null )
+                this.edited_note.image_path = image.split('/')[image.split('/').length - 1]
         },
 
         async form_submitted(event) {

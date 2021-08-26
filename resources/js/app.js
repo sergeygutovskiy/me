@@ -7,8 +7,9 @@ import NotesManager from "./components/notes/NotesManager";
 
 const sidebar_wrapper_el = document.getElementsByClassName('sidebar-wrapper')[0];
 const sidebar_el = document.getElementsByClassName('sidebar__content')[0];
+const sidebar_info_text_el = sidebar_wrapper_el.getElementsByTagName('span')[0];
 const sidebar_close_button_el = sidebar_wrapper_el.getElementsByTagName('button')[0];
-const sidebar = new Sidebar(sidebar_wrapper_el, sidebar_el, sidebar_close_button_el);
+const sidebar = new Sidebar(sidebar_wrapper_el, sidebar_el, sidebar_info_text_el, sidebar_close_button_el);
 
 const blur_el = document.getElementsByClassName('blur')[0];
 const blur = new Blur(blur_el);

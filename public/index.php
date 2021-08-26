@@ -22,6 +22,7 @@ require_once '../app/models/Note.php';
 require_once '../app/models/NoteLink.php';
 require_once '../app/models/Project.php';
 require_once '../app/models/Setting.php';
+require_once '../app/models/Post.php';
 
 // 
 
@@ -63,5 +64,6 @@ require_once '../app/routes/api/storage/portfolio.php';
 require_once '../app/routes/api/notes.php';
 require_once '../app/routes/api/portfolio.php';
 require_once '../app/routes/api/settings.php';
+require_once '../app/routes/api/posts.php';
 
 $router->run();

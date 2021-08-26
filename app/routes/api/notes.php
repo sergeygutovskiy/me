@@ -2,6 +2,87 @@
 
 use App\Core\Api;
 use App\Models\Note;
+use App\Models\NoteLink;
+
+// Links: Index
+
+$router->get('/api/notes/{id}/links', function(int $id) {
+    $note = Note::id($id);
+
+    if ($note === null) {
+        echo Api::bad_response();
+        return;
+    }
+
+    echo Api::good_response( ['links' => $note->links()] );
+});
+
+// Links: Store
+
+$router->post('/api/notes/{id}/links', function(int $id) {
+    $postData = file_get_contents('php://input');
+    $data = json_decode($postData, true);
+
+    $link = NoteLink::create([
+        'note_id' => $id,
+        'link' => $data['link'],
+        'text' => $data['text'],
+    ]);
+
+    echo Api::good_response();
+});
+
+// Links: Update
+
+$router->post('/api/notes/{id}/links/{id}', function(int $note_id, int $link_id) {    
+    $link = NoteLink::id($link_id);
+
+    if ($link === null) 
+    {
+        echo Api::bad_response();
+        return;
+    }
+
+    $postData = file_get_contents('php://input');
+    $data = json_decode($postData, true);
+
+    $updated = $link->update([
+        'link' => $data['link'],
+        'text' => $data['text'],
+    ]);
+
+    if (!$updated) 
+    {
+        echo Api::bad_response();
+        return;
+    }
+
+    echo Api::good_response();
+});
+
+// Links: Delete
+
+$router->delete('/api/notes/{id}/links/{id}', function(int $note_id, int $link_id) {
+    $link = NoteLink::id($link_id);
+
+    if ($link === null) 
+    {
+        echo Api::bad_response();
+        return;
+    }
+
+    if (!$link->delete()) 
+    {
+        echo Api::bad_response();
+        return;
+    }
+
+    echo Api::good_response();
+});
+
+
+
+
 
 // Show
 

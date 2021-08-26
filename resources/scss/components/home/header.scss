@@ -3,8 +3,7 @@
     text-align: center;
 
     &__avatar {
-        @include mb('md-2');
-        
+        @include mb('md-2');        
         max-width: 300px;
         width: 100%;
         border-radius: 50%;

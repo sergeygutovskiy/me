@@ -3,10 +3,12 @@
 @section('title', 'Портфолио')
     
 @section('header')
+    <?php use App\Core\Settings; ?>
+
     <header class="header">
         <h1>Портфолио</h1>
         <p class="header__paragraph">
-            {!! App\Core\Settings::get('page_portfolio_text') !!}
+            {!! Settings::get('page_portfolio_text') !!}
         </p>
     </header>
 @endsection
@@ -28,9 +30,17 @@
                 <p class="portfolio-item__paragraph">
                     {{ $project->description }}
                 </p>
+                @if ($project->published_at !== null)  
+                <p class="portfolio-item__published_at_text">
+                    Закончен: 
+                    <strong class="number">
+                        {{ date_format( date_create($project->published_at), 'm.Y' ) }}
+                    </strong>
+                </p>
+                @endif
                 <footer class="portfolio-item__footer">
                     {{-- <button class="portfolio-item__icon icon icon_heart"></button> --}}
-                    @if ($project->source_link != null)                        
+                    @if ($project->source_link !== null)                        
                     <a 
                         class="portfolio-item__icon icon icon_github" 
                         href="{{ $project->source_link }}"

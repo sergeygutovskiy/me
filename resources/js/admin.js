@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import bootstrap from 'bootstrap';
+// // import bootstrap from 'bootstrap';
 import '../scss/admin.scss';
 
 import App from './vue/components/App.vue';
@@ -15,6 +15,10 @@ import PortfolioIndex from './vue/components/portfolio/Index.vue';
 import PortfolioEdit from './vue/components/portfolio/Edit.vue';
 
 import FilesIndex from './vue/components/files/Index.vue';
+
+import PostsIndex from './vue/components/posts/Index.vue'; 
+import PostsAdd from './vue/components/posts/Add.vue'; 
+import PostsEdit from './vue/components/posts/Edit.vue'; 
 
 window.Vue = Vue; 
 
@@ -59,6 +63,22 @@ const router = new VueRouter({
             path: '/portfolio/:id/edit',
             name: 'portfolio.edit',
             component: PortfolioEdit,
+            props: true,
+        },
+        {
+            path: '/posts',
+            name: 'posts',
+            component: PostsIndex,
+        },
+        {
+            path: '/posts/add',
+            name: 'posts.add',
+            component: PostsAdd,
+        },
+        {
+            path: '/posts/:id/edit',
+            name: 'posts.edit',
+            component: PostsEdit,
             props: true,
         },
     ],

@@ -4,18 +4,18 @@
 
 @each $font-name, $font-options in $fonts {
     #font-#{$font-name} {
-        line-height: map-get($map: $font-options, $key: 'line');
-        font-size: string.unquote( map-get($map: $font-options, $key: 'size') );
+        font-size: string.unquote(map-get($map: $font-options, $key: 'size'));
         font-weight: map-get($map: $font-options, $key: 'weight');
+        line-height: map-get($map: $font-options, $key: 'line');
     }
 }
 
 @mixin interfaces--sm {
     @each $font-name, $font-options in $fonts--sm {
         #font-#{$font-name} {
-            line-height: map-get($map: $font-options, $key: 'line');
-            font-size: string.unquote( map-get($map: $font-options, $key: 'size') );
+            font-size: string.unquote(map-get($map: $font-options, $key: 'size'));
             font-weight: map-get($map: $font-options, $key: 'weight');
+            line-height: map-get($map: $font-options, $key: 'line');
         }
     }
 }

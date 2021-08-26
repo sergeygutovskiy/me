@@ -17,6 +17,12 @@ export default class BlurSidebarManager {
         this._sidebar.close_button().addEventListener('click', event => {
             if (event.target === this._sidebar.close_button()) this.close();
         });
+
+        document.body.addEventListener('keydown', (e) => {
+            if (e.repeat || e.key !== 'Escape') return;
+                        
+            this.close();
+        });
     }
 
     open() {
@@ -29,6 +35,7 @@ export default class BlurSidebarManager {
         this._blur.close();
     }
 
+    set_info_text = text => this._sidebar.set_info_text(text);
     add_content_to_sidebar = el => this._sidebar.add_content(el);
     remove_content_from_sidebar = () => this._sidebar.remove_content();
 }

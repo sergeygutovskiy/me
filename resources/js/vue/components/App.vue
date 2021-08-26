@@ -9,6 +9,9 @@
                     <router-link class="list-group-item list-group-item-action" :to="{ name: 'settings' }">
                         Настройки
                     </router-link>
+                    <router-link class="list-group-item list-group-item-action" :to="{ name: 'posts' }">
+                        Посты
+                    </router-link>
                     <router-link class="list-group-item list-group-item-action" :to="{ name: 'notes' }">
                         Заметки
                     </router-link>

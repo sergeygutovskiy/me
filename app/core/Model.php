@@ -29,7 +29,17 @@ class Model
 
     public static function id(string $id) : ?static 
     {
-        $model_result = DB::query('SELECT * FROM ' . static::$table . ' WHERE id = ' . $id);
+        return static::key('id', $id);
+    }
+
+    public static function slug(string $slug) : ?static 
+    {
+        return static::key('slug', $slug);
+    }
+
+    private static function key(string $key, string $value) : ?static 
+    {
+        $model_result = DB::query('SELECT * FROM ' . static::$table . ' WHERE ' . $key . ' = ' . "'$value'");
 
         $row = $model_result->fetch();
         return static::fetch($row);
@@ -69,5 +79,10 @@ class Model
         while ($row = $models_result->fetch()) { $models[] = static::fetch($row); }
 
         return $models;
+    }
+
+    public static function sort_by_created_at_date(Model $a, Model $b)
+    {
+        return date($a->created_at) > date($b->created_at) ? -1 : 1;
     }
 }

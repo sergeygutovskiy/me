@@ -45,6 +45,12 @@ export default class NotesManager {
     build_note_content(note) {
         this._manager.remove_content_from_sidebar();
 
+        const date = new Date(note.created_at);
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formatted_text = new Intl.DateTimeFormat('ru-RU', options).format(date);
+        
+        this._manager.set_info_text(formatted_text);
+
         if (note.image_path !== null) {
             const img_wrapper = document.createElement('div');
             img_wrapper.classList.add('note-sidebar__image-wrapper');

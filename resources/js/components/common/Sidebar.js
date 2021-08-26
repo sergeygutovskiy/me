@@ -1,9 +1,10 @@
 export default class Sidebar {
-    constructor(sidebar_wrapper_el, sidebar_el, sidebar_close_button_el) {
+    constructor(sidebar_wrapper_el, sidebar_el, sidebar_info_text_el, sidebar_close_button_el) {
         if (
             sidebar_wrapper_el === null || sidebar_wrapper_el === undefined ||
             sidebar_el === null || sidebar_el === undefined ||
-            sidebar_close_button_el === null || sidebar_close_button_el === undefined
+            sidebar_close_button_el === null || sidebar_close_button_el === undefined ||
+            sidebar_info_text_el === null || sidebar_info_text_el === undefined
         ) {
             throw new Error('No sidebar');
         }
@@ -11,6 +12,7 @@ export default class Sidebar {
         this._sidebar_wrapper_el = sidebar_wrapper_el;  
         this._sidebar_el = sidebar_el;
         this._sidebar_close_button_el = sidebar_close_button_el;
+        this._sidebar_info_text_el = sidebar_info_text_el;
         this._opened = false;
     }
 
@@ -40,7 +42,12 @@ export default class Sidebar {
         this._sidebar_el.append(element);
     }
 
+    set_info_text(text) {
+        this._sidebar_info_text_el.textContent = text;
+    }
+
     remove_content() {
         this._sidebar_el.textContent = '';
+        this._sidebar_info_text_el.textContent = '';
     }
 }

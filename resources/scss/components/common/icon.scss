@@ -1,16 +1,15 @@
 .icon {
     --size: 32px;
-    --path: url(''); 
+    --path: url('');
 
     display: block;
-
-    width: var(--size);
     height: var(--size);
+    width: var(--size);
 
     background-image: var(--path);
+    background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: center;
 
     &_size_big {
         --size: 48px;   
@@ -42,5 +41,9 @@
 
     &_portfolio {
         --path: url('/images/icons/navigation/portfolio.svg');
+    }
+
+    &_for-developers {
+        --path: url('/images/icons/navigation/for-developers.svg');
     }
 }

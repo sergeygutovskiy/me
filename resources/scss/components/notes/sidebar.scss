@@ -1,11 +1,16 @@
 .note-sidebar {
     &__image-wrapper {
         @extend .container-aspect;
-        --aspect-ratio: (2 / 1);
-        
         @include mb('md-1');
-        background-color: $color-background-base;
-        border-radius: 12px;
+
+        --aspect-ratio: (2 / 1);
+
+        > img,
+        picture {
+            max-width: 100%;
+            width: revert;
+            object-fit: scale-down;
+        }
     }
     
     &__title {

@@ -1,14 +1,14 @@
 <template>
-    <section class="row">
+    <section class="row" v-if="project">
         <div class="col-12 mb-4">
             <div class="card">
                 <div class="card-body">
-                    <h1>Портфолио - {{ edited_project.name }}</h1>
+                    <h1>Портфолио - {{ project.name }}</h1>
                 </div>
             </div>
         </div>
         <div class="col-10">
-            <form class="card" v-if="project" @submit="form_submitted">
+            <form class="card" @submit="form_submitted">
                 <div class="card-body">
                     <div>
                         <label class="form-label">Название</label>
