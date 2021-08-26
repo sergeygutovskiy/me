@@ -67,9 +67,14 @@ export default class NotesManager {
         heading.classList.add('note-sidebar__title');
         heading.textContent = note.name;
 
-        const paragraph = document.createElement('p');
+        // const paragraph = document.createElement('p');
+        // paragraph.classList.add('note-sidebar__paragraph');
+        // paragraph.textContent = note.description;
+
+        const paragraph = new DOMParser()
+            .parseFromString('<p>' + note.description + '</p>', 'text/html').body.firstElementChild;
         paragraph.classList.add('note-sidebar__paragraph');
-        paragraph.textContent = note.description;
+        
 
         this._manager.add_content_to_sidebar(heading);
         this._manager.add_content_to_sidebar(paragraph);
